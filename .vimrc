@@ -94,15 +94,22 @@ exec 'set softtabstop=3'
 
 
 " allow backspacing over everything
-set backspace=indent,eol,start 
+set backspace=indent,eol,start
 
 " highlight search 
 set hls 
 
 " automatically set current directory to directory of last opened file
-set autochdir 
+autocmd VimEnter * set autochdir
 
 " open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+if has('unnamedplus')
+  set clipboard+=unnamedplus " make default copy and paste to use clipboard
+else
+  set clipboard=unnamed " Using mouse 3rd button click
+endif
+
 
